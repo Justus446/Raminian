@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaminianAPI", "RaminianAPI\RaminianAPI.csproj", "{334A9D80-6946-4A97-8DEE-F89F723CFF10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{334A9D80-6946-4A97-8DEE-F89F723CFF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334A9D80-6946-4A97-8DEE-F89F723CFF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334A9D80-6946-4A97-8DEE-F89F723CFF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{334A9D80-6946-4A97-8DEE-F89F723CFF10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11A9830B-266F-4179-93AF-8C846286AF2D}
+	EndGlobalSection
+EndGlobal
