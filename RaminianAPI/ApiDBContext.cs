@@ -19,7 +19,7 @@ namespace RaminianAPI
         public DbSet<eComm_non_eComm> Ecommerce { get; set; }
        
 
-        public DbSet<RaminianAPI.Models.Contact> Contact { get; set; }
+        public DbSet<RaminianAPI.Models.Contact> Contacts { get; set; }
        
 
         public DbSet<RaminianAPI.Models.Customer> Customer { get; set; }
@@ -31,7 +31,7 @@ namespace RaminianAPI
         public DbSet<RaminianAPI.Models.Permissions> Permissions { get; set; }
        
 
-        public DbSet<RaminianAPI.Models.User> User { get; set; }
+        public DbSet<RaminianAPI.Models.User> Users { get; set; }
        
 
         public DbSet<RaminianAPI.Models.Warehouses> Warehouses { get; set; }
