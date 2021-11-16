@@ -39,5 +39,7 @@ namespace RaminianAPI
 
         public DbSet<RaminianAPI.Models.ProductPhoto> ProductPhoto { get; set; }
 
+        public DbSet<ProdInfo> ProdInfo { get; set; }
+
     }
 }
