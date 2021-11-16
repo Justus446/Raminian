@@ -25,14 +25,14 @@ namespace RaminianAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Contact>>> GetContact()
         {
-            return await _context.Contact.ToListAsync();
+            return await _context.Contacts.ToListAsync();
         }
 
         // GET: api/Contacts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Contact>> GetContact(int id)
         {
-            var contact = await _context.Contact.FindAsync(id);
+            var contact = await _context.Contacts.FindAsync(id);
 
             if (contact == null)
             {
@@ -78,7 +78,7 @@ namespace RaminianAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Contact>> PostContact(Contact contact)
         {
-            _context.Contact.Add(contact);
+            _context.Contacts.Add(contact);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetContact", new { id = contact.ID }, contact);
@@ -88,13 +88,13 @@ namespace RaminianAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
-            var contact = await _context.Contact.FindAsync(id);
+            var contact = await _context.Contacts.FindAsync(id);
             if (contact == null)
             {
                 return NotFound();
             }
 
-            _context.Contact.Remove(contact);
+            _context.Contacts.Remove(contact);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace RaminianAPI.Controllers
 
         private bool ContactExists(int id)
         {
-            return _context.Contact.Any(e => e.ID == id);
+            return _context.Contacts.Any(e => e.ID == id);
         }
     }
 }
