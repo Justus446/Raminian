@@ -17,7 +17,7 @@ namespace RaminianAPI
        
 
         public DbSet<eComm_non_eComm> Ecommerce { get; set; }
-       
+
 
         public DbSet<RaminianAPI.Models.Contact> Contacts { get; set; }
        

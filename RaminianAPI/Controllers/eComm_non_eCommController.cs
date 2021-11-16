@@ -25,7 +25,13 @@ namespace RaminianAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<eComm_non_eComm>>> GetEcommerce()
         {
-            return await _context.Ecommerce.ToListAsync();
+            //return await _context.Ecommerce.ToListAsync();
+            var str = "SELECT sku, REPLACE(description,':','') AS [description], price FROM _eCommerce_Non_eComm WHERE WareID=1;";
+
+            return await _context.Ecommerce.FromSqlRaw(str)
+                .ToListAsync() ;
+            
+            
         }
 
         // GET: api/eComm_non_eComm/5
@@ -47,7 +53,7 @@ namespace RaminianAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PuteComm_non_eComm(int id, eComm_non_eComm eComm_non_eComm)
         {
-            if (id != eComm_non_eComm.ProductID)
+            if (id != eComm_non_eComm.sku)
             {
                 return BadRequest();
             }
@@ -81,7 +87,7 @@ namespace RaminianAPI.Controllers
             _context.Ecommerce.Add(eComm_non_eComm);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GeteComm_non_eComm", new { id = eComm_non_eComm.ProductID }, eComm_non_eComm);
+            return CreatedAtAction("GeteComm_non_eComm", new { id = eComm_non_eComm.sku}, eComm_non_eComm);
         }
 
         // DELETE: api/eComm_non_eComm/5
@@ -102,7 +108,7 @@ namespace RaminianAPI.Controllers
 
         private bool eComm_non_eCommExists(int id)
         {
-            return _context.Ecommerce.Any(e => e.ProductID == id);
+            return _context.Ecommerce.Any(e => e.sku == id);
         }
     }
 }
