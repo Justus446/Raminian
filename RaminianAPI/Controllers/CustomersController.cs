@@ -47,7 +47,7 @@ namespace RaminianAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(int id, Customer customer)
         {
-            if (id != customer.ID)
+            if (id != customer.CustID )
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace RaminianAPI.Controllers
             _context.Customer.Add(customer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.ID }, customer);
+            return CreatedAtAction("GetCustomer", new { id = customer.CustID }, customer);
         }
 
         // DELETE: api/Customers/5
@@ -102,7 +102,7 @@ namespace RaminianAPI.Controllers
 
         private bool CustomerExists(int id)
         {
-            return _context.Customer.Any(e => e.ID == id);
+            return _context.Customer.Any(e => e.CustID == id);
         }
     }
 }
