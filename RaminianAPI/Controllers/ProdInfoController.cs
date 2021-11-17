@@ -52,26 +52,28 @@ namespace RaminianAPI.Controllers
             try
             {
                 var myParams = new[] {
-        new SqlParameter("@CategoryName", SqlDbType.NVarChar)
-        {
-          Direction = ParameterDirection.Input,
-          Value = PI.ProductID
-        },
-        new SqlParameter("@Description", SqlDbType.NText)
-        {
-          Direction = ParameterDirection.Input,
-          Value = PI.WareID
-        },
-        new SqlParameter("@Identity", SqlDbType.Int)
-        {
-          Direction = ParameterDirection.Output,
-          Value = 0
-        }
+                new SqlParameter("@ProductID", SqlDbType.Int)
+                {
+                  Direction = ParameterDirection.Input,
+                  Value = PI.ProductID, DbType = DbType.Int32
+                },
+                new SqlParameter("@WareID", SqlDbType.Int)
+                {
+                  Direction = ParameterDirection.Input,
+                  Value = PI.WareID, DbType = DbType.Int32
+                },
+                new SqlParameter("@Location", SqlDbType.NVarChar, 20)
+                {
+                  Direction = ParameterDirection.Input,
+                  Value = PI.Location
+                  , DbType = DbType.String
+                }
 
-      };
+              };
                 //string sql = "EXEC SalesLT.Product_Get @ProductID";
 
-                _context.Database.ExecuteSqlRaw("EXEC dbo.ProdInfo_Ware_Update @ProductID,@WareID,@MinStock,@MaxStock,@Location", myParams);
+                //_context.Database.ExecuteSqlRaw("EXEC dbo.ProdInfo_Ware_Update @ProductID,@WareID,@MinStock,@MaxStock,@Location", myParams);
+                _context.Database.ExecuteSqlRaw("EXEC dbo.ProdInfo_Ware_Update @ProductID , @WareID , @Location", myParams);
             }
             catch (DbUpdateConcurrencyException)
             {
