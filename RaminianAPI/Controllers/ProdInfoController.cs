@@ -26,16 +26,17 @@ namespace RaminianAPI.Controllers
         public async Task<ActionResult<IEnumerable<ProdInfo>>> GetEcommerce()
         {
             //return await _context.Ecommerce.ToListAsync();
-            var str = "SELECT P.ProductID, P.SKU, P.Description, pwi.WareID, W.WareName AS [Warehouse], PWI.Location, sbw.Instock AS [InStock] FROM dbo.Products AS P " +
-                        " LEFT JOIN dbo.Product_WareInfo AS PWI " +
-                        " ON PWI.ProductID = P.ProductID " +
-                        " LEFT JOIN dbo._Warehouses AS W ON W.WareID = PWI.WareID " +
-                        " LEFT JOIN dbo.StockBalance_Ware AS SBW ON SBW.ProductID = P.ProductID AND SBW.WareID = PWI.WareID " +
-                        " WHERE PWI.WareID IS NOT null";
+            /* var str = "SELECT P.ProductID, P.SKU, P.Description, pwi.WareID, W.WareName AS [Warehouse], PWI.Location, sbw.Instock AS [InStock] FROM dbo.Products AS P " +
+                         " LEFT JOIN dbo.Product_WareInfo AS PWI " +
+                         " ON PWI.ProductID = P.ProductID " +
+                         " LEFT JOIN dbo._Warehouses AS W ON W.WareID = PWI.WareID " +
+                         " LEFT JOIN dbo.StockBalance_Ware AS SBW ON SBW.ProductID = P.ProductID AND SBW.WareID = PWI.WareID " +
+                         " WHERE PWI.WareID IS NOT null";*/
 
+            var str = "SELECT P.ProductID, P.SKU, P.Description, pwi.WareID, W.WareName AS [Warehouse], PWI.Location, sbw.Instock AS [InStock] FROM dbo.Products AS P LEFT JOIN dbo.Product_WareInfo AS PWI  ON PWI.ProductID = P.ProductID LEFT JOIN dbo._Warehouses AS W ON W.WareID = PWI.WareID LEFT JOIN dbo.StockBalance_Ware AS SBW ON SBW.ProductID = P.ProductID AND SBW.WareID = PWI.WareID WHERE PWI.WareID IS NOT null";
             return await _context.ProdInfo.FromSqlRaw(str)
-                .ToListAsync();
-
+            .ToListAsync();
+            //return await _context.Database.ExecuteSqlCommand(str);
 
         }
 

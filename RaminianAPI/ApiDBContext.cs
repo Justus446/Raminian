@@ -25,13 +25,13 @@ namespace RaminianAPI
         public DbSet<RaminianAPI.Models.Customer> Customer { get; set; }
        
 
-        public DbSet<RaminianAPI.Models.Order> Order { get; set; }
+        //public DbSet<RaminianAPI.Models.Order> Order { get; set; }
        
 
-        public DbSet<RaminianAPI.Models.Permissions> Permissions { get; set; }
+        //public DbSet<RaminianAPI.Models.Permissions> Permissions { get; set; }
        
 
-        public DbSet<RaminianAPI.Models.User> Users { get; set; }
+        //public DbSet<RaminianAPI.Models.User> Users { get; set; }
        
 
         public DbSet<RaminianAPI.Models.Warehouses> Warehouses { get; set; }
