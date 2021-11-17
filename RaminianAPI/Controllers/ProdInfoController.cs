@@ -26,7 +26,7 @@ namespace RaminianAPI.Controllers
         public async Task<ActionResult<IEnumerable<ProdInfo>>> GetEcommerce()
         {
             //return await _context.Ecommerce.ToListAsync();.
-             var str = "SELECT P.ProductID, P.SKU, P.Description, pwi.WareID, W.WareName AS [Warehouse], PWI.Location, sbw.Instock AS [InStock] FROM dbo.Products AS P " +
+             var str = "SELECT top 10 P.ProductID, P.SKU, P.Description, pwi.WareID, W.WareName AS [Warehouse], PWI.Location, sbw.Instock AS [InStock] FROM dbo.Products AS P " +
                          " LEFT JOIN dbo.Product_WareInfo AS PWI " +
                          " ON PWI.ProductID = P.ProductID " +
                          " LEFT JOIN dbo._Warehouses AS W ON W.WareID = PWI.WareID " +
