@@ -73,7 +73,7 @@ namespace RaminianAPI.Controllers
                 //string sql = "EXEC SalesLT.Product_Get @ProductID";
 
                 //_context.Database.ExecuteSqlRaw("EXEC dbo.ProdInfo_Ware_Update @ProductID,@WareID,@MinStock,@MaxStock,@Location", myParams);
-                _context.Database.ExecuteSqlRaw("EXEC dbo.ProdInfo_Ware_Update @ProductID , @WareID , @Location", myParams);
+                await _context.Database.ExecuteSqlRawAsync("EXEC dbo.ProdInfo_Ware_Update @ProductID , @WareID , @Location", myParams);
             }
             catch (DbUpdateConcurrencyException)
             {
